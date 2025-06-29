@@ -8,16 +8,33 @@ mat-sidenav-container {
   width: 100%;  
 }
 
-.api-list a[mat-list-item] {
+.list a[mat-list-item] {
   display: flex;
   align-items: center;
-  width: 100%;            
-  padding: 0 8px 0 12px;   
+  height: 56px;     
+  padding: 0 12px;
   box-sizing: border-box;  
-  height: 40px;
+}
+
+.list a[mat-list-item] .mat-line {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.list mat-icon {
+  margin-right: 16px;
+  font-size: 28px;
+  vertical-align: middle;
 }
 
 .custom-black-toolbar {
   background-color: #000;
   color: #fff;
+  border-radius: 0;
+}
+
+.sidenav {
+  border-radius: 0;
+  width: 320px;
+  min-width: 320px;  
 }
