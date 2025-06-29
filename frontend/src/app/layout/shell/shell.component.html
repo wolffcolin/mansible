@@ -1,0 +1,30 @@
+<mat-sidenav-container class="app">
+     <mat-sidenav mode="side" opened class="sidenav" [style.width.px]="240" [style.minWidth.px]="240" [disableClose]="true">
+         <mat-toolbar color="transparent" class="custom-black-toolbar">Mansible</mat-toolbar>
+         <mat-nav-list class="api-list">
+            <a mat-list-item routerLink="/dashboard">
+                <mat-icon matListIcon>dashboard</mat-icon>
+                Dashboard
+            </a>
+            <a mat-list-item routerLink="/devices">
+                <mat-icon matListIcon>devices</mat-icon>
+                Devices
+            </a>
+            <a mat-list-item routerLink="/playbooks">
+                <mat-icon matListIcon>article</mat-icon>
+                Playbooks
+            </a>
+            <a mat-list-item routerLink="/inventory">
+                <mat-icon matListIcon>inventory_2</mat-icon>
+                Inventory
+            </a>
+            <a mat-list-item routerLink="/keystore">
+                <mat-icon matListIcon>vpn_key</mat-icon>
+                Key&nbsp;Store
+            </a>
+        </mat-nav-list>
+     </mat-sidenav>
+     <mat-sidenav-content>
+        <router-outlet></router-outlet>
+     </mat-sidenav-content>
+</mat-sidenav-container>
