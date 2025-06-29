@@ -19,7 +19,7 @@ run: stop
 stop:
 	-@docker rm -f $(CONTAINER_NAME) 2>/dev/null || true
 
-buildstart: build run
+buildrun: build run
 
 # Run interactively (like local dev)
 interactive: stop
