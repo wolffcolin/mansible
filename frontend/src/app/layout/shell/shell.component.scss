@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  width: 100%;  
+}
+
+.api-list a[mat-list-item] {
+  display: flex;
+  align-items: center;
+  width: 100%;            
+  padding: 0 8px 0 12px;   
+  box-sizing: border-box;  
+  height: 40px;
+}
+
+.custom-black-toolbar {
+  background-color: #000;
+  color: #fff;
+}
