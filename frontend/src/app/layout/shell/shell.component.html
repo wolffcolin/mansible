@@ -28,3 +28,21 @@
         <router-outlet></router-outlet>
      </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+
+<!-- Terminal Drawer -->
+<div class="terminal-drawer" [class.open]="drawerOpen">
+  <div class="terminal-header" (click)="toggleDrawer()">
+    <mat-icon>{{ drawerOpen ? 'expand_more' : 'expand_less' }}</mat-icon>
+    <span>Command Terminal</span>
+  </div>
+  <div class="terminal-body" *ngIf="drawerOpen">
+    <div class="command-log">
+      <div *ngFor="let cmd of commands" class="command-entry">
+        <span>{{ cmd.text }}</span>
+        <span class="status" [ngClass]="cmd.status">{{ cmd.status }}</span>
+      </div>
+    </div>
+  </div>
+</div>

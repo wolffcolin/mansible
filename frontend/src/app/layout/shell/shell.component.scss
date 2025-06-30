@@ -38,3 +38,38 @@ mat-sidenav-container {
   width: 320px;
   min-width: 320px;  
 }
+
+
+/*terminal stuff*/
+.terminal-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 320px; /* Adjust if your sidenav width differs */
+  right: 0;
+  background-color: #111;
+  color: #eee;
+  font-family: monospace;
+  border-top: 1px solid #333;
+  z-index: 2000;
+  resize: vertical;
+  overflow: auto;
+  min-height: 40px;
+  max-height: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  background: #222;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-body {
+  padding: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
