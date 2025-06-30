@@ -11,12 +11,14 @@ public class Host {
 
     @Override
     public String toString() {
-        String inventoryLine = address + " ";
-        for (String key : vars.keySet()) {
-            inventoryLine = inventoryLine + key + "=" + vars.get(key) + " ";
+        StringBuilder sb = new StringBuilder(address);
+        for (Map.Entry<String, String> entry : vars.entrySet()) {
+            sb.append(" ")
+                    .append(entry.getKey())
+                    .append("=")
+                    .append(entry.getValue());
         }
-
-        return inventoryLine;
+        return sb.toString();
     }
 
 }

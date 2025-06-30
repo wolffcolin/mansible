@@ -42,7 +42,7 @@ WORKDIR /app
 # Copy built artifacts from builder
 COPY --from=builder /app/backend/target/*.jar ./app.jar
 COPY --from=builder /app/frontend/dist ./frontend/dist
-COPY ansible ./ansible
+COPY ansible ./ansiblex     
 
 # Copy entrypoint script
 COPY entrypoint.sh .
