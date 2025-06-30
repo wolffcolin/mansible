@@ -3,7 +3,7 @@ IMAGE_NAME := mansible-docker-container
 CONTAINER_NAME := mansible
 INTERNALPORT := 4200
 EXTERNALPORT ?= 4200
-DOCKERFILE := dockerfile
+DOCKERFILE := Dockerfile
 CONTEXT := .
 
 # Build the Docker image (force rebuild with no cache)
