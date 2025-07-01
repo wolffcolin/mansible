@@ -31,13 +31,20 @@
 
 
 
-<!-- Terminal Drawer -->
-<div class="terminal-drawer" [class.open]="drawerOpen">
-  <div class="terminal-header" (click)="toggleDrawer()">
-    <mat-icon>{{ drawerOpen ? 'expand_more' : 'expand_less' }}</mat-icon>
-    <span>Command Terminal</span>
+<!-- Terminal Hover Drawer -->
+<mat-card class="terminal-hover-drawer"
+          [class.open]="hovering || pinned"
+          (mouseenter)="hovering = true"
+          (mouseleave)="hovering = false">
+
+  <!-- Header tab (acts like handle) -->
+  <div class="terminal-header" (click)="togglePin()">
+    <mat-icon>terminal</mat-icon>
+    <span>Command History</span>
   </div>
-  <div class="terminal-body" *ngIf="drawerOpen">
+
+  <!-- Terminal content (scrollable) -->
+  <div class="terminal-body">
     <div class="command-log">
       <div *ngFor="let cmd of commands" class="command-entry">
         <span>{{ cmd.text }}</span>
@@ -45,4 +52,4 @@
       </div>
     </div>
   </div>
-</div>
+</mat-card>

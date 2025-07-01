@@ -23,6 +23,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ShellComponent {
   drawerOpen = true;
+  hovering = false;
+  pinned = false;
 
     commands = [
     { text: 'ng build', status: 'success' },
@@ -33,4 +35,9 @@ export class ShellComponent {
   toggleDrawer() {
     this.drawerOpen = !this.drawerOpen;
   }
+
+  togglePin() {
+  this.pinned = !this.pinned;
+  }
+
 }
