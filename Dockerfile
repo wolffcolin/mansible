@@ -1,7 +1,7 @@
-# Multi-stage build for better caching and smaller final image
-FROM eclipse-temurin:17-jdk-jammy as builder
+# ---------- build stage ----------
+FROM eclipse-temurin:17-jdk-jammy AS builder
 
-# Install Ansible and frontend dependencies
+# tools for both back- and front-end
 RUN apt-get update && \
     apt-get install -y ansible python3-pip nodejs npm && \
     npm install -g @angular/cli && \
@@ -10,28 +10,30 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# Copy backend files
+# backend skeleton
 COPY backend/pom.xml backend/mvnw ./backend/
 COPY backend/.mvn ./backend/.mvn
-RUN cd backend && ./mvnw dependency:go-offline
+RUN chmod +x backend/mvnw && \
+    cd backend && ./mvnw dependency:go-offline
 
-# Copy frontend files
+# frontend skeleton
 COPY frontend/package.json frontend/package-lock.json ./frontend/
 RUN cd frontend && npm install
 
-# Copy remaining files
+# rest of the source tree
 COPY . .
 
-# Build backend
-RUN cd backend && ./mvnw package -DskipTests
+# build backend (wrapper needs +x again after blanket copy)
+RUN chmod +x backend/mvnw && \
+    cd backend && ./mvnw package -DskipTests
 
-# Build frontend
+# build frontend
 RUN cd frontend && npm run build -- --configuration production
 
-# Final image
-FROM eclipse-temurin:17-jdk-jammy
 
-# Install Ansible only (no build tools needed)
+# ---------- runtime stage ----------
+FROM eclipse-temurin:17-jdk-jammy AS runtime
+
 RUN apt-get update && \
     apt-get install -y ansible python3-pip && \
     apt-get clean && \
@@ -39,15 +41,14 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# Copy built artifacts from builder
+# bring in artefacts
 COPY --from=builder /app/backend/target/*.jar ./app.jar
 COPY --from=builder /app/frontend/dist ./frontend/dist
-COPY ansible ./ansiblex     
+COPY ansible ./ansiblex
 
-# Copy entrypoint script
+# entrypoint
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 EXPOSE 8080 4200
-
 ENTRYPOINT ["./entrypoint.sh"]
