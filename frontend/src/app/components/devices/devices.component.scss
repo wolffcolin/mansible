@@ -1,0 +1,22 @@
+.grid-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.column {
+  flex: 1;
+  background: #881010;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 300px;
+}
+
+.card {
+  background: rgb(199, 98, 98);
+  border: 1px solid #1b0f71;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(99, 110, 33, 0.1);
+}
