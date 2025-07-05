@@ -10,9 +10,4 @@ import { CommonModule } from '@angular/common';
 })
 
 export class DevicesComponent {
-  columns = [
-    ['Box 1', 'Box 2'],
-    ['Box 3'],
-    ['Box 4', 'Box 5']
-  ];
 }
