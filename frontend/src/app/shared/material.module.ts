@@ -10,6 +10,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar'; 
 import { MatTab, MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   exports: [
@@ -23,7 +26,13 @@ import { MatTab, MatTabsModule } from '@angular/material/tabs';
     MatCheckboxModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatTabsModule                                    
+    MatTabsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule {}

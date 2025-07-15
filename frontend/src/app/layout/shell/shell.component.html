@@ -1,33 +1,64 @@
-<mat-sidenav-container class="app">
-     <mat-sidenav mode="side" opened class="sidenav" [disableClose]="true">
-         <mat-toolbar color="transparent" class="custom-black-toolbar">Mansible</mat-toolbar>
-         <mat-nav-list class="list">
-            <a mat-list-item routerLink="/dashboard">
-                <mat-icon matListIcon>dashboard</mat-icon>
-                Dashboard
-            </a>
-            <a mat-list-item routerLink="/devices">
-                <mat-icon matListIcon>devices</mat-icon>
-                Devices
-            </a>
-            <a mat-list-item routerLink="/playbooks">
-                <mat-icon matListIcon>article</mat-icon>
-                Playbooks
-            </a>
-            <a mat-list-item routerLink="/inventory">
-                <mat-icon matListIcon>inventory_2</mat-icon>
-                Inventory
-            </a>
-            <a mat-list-item routerLink="/keystore">
-                <mat-icon matListIcon>vpn_key</mat-icon>
-                Key&nbsp;Store
-            </a>
-        </mat-nav-list>
-     </mat-sidenav>
-     <mat-sidenav-content>
-        <router-outlet></router-outlet>
-     </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="layout">
+  <mat-card class="app-card">
+      <mat-toolbar class="custom-black-toolbar">
+      Mansible
+      </mat-toolbar>
+
+    <mat-card-content>
+      <mat-nav-list class="list">
+        <a mat-list-item routerLink="/dashboard">
+          <mat-icon matListIcon>dashboard</mat-icon>
+          Dashboard
+        </a>
+        <a mat-list-item routerLink="/devices">
+          <mat-icon matListIcon>devices</mat-icon>
+          Devices
+        </a>
+        <a mat-list-item routerLink="/playbooks">
+          <mat-icon matListIcon>article</mat-icon>
+          Playbooks
+        </a>
+        <a mat-list-item routerLink="/inventory">
+          <mat-icon matListIcon>inventory_2</mat-icon>
+          Inventory
+        </a>
+        <a mat-list-item routerLink="/keystore">
+          <mat-icon matListIcon>vpn_key</mat-icon>
+          Key&nbsp;Store
+        </a>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+
+<!-- TOP NAVIGATION BAR -->
+
+<mat-card class="top-bar">
+  <div class="top-bar-content">
+    <span class="spacer"></span>
+    <mat-slide-toggle (change)="toggleDarkMode()">
+      Dark Mode
+    </mat-slide-toggle>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        Settings
+      </button>
+    </mat-menu>
+  </div>
+</mat-card>
 
 
 

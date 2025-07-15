@@ -6,6 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-shell',
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
     MatSidenavModule,
     MatToolbarModule,
     RouterOutlet,
+    RouterModule,
     RouterLink,
     MatIconModule,
     CommonModule
@@ -21,10 +23,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss'
 })
+
+
 export class ShellComponent {
   drawerOpen = true;
   hovering = false;
   pinned = false;
+  lightMode = true;
+
 
     commands = [
     { text: 'ng build', status: 'success' },
@@ -39,5 +45,25 @@ export class ShellComponent {
   togglePin() {
   this.pinned = !this.pinned;
   }
+
+
+  toggleDarkMode() {
+    this.lightMode = !this.lightMode
+    const body = document.body;
+  
+    if(this.lightMode){
+      body.classList.remove()
+      body.classList.add()
+    }else{
+      body.classList.remove()
+      body.classList.add()
+    }
+
+  }
+
+logout(): void {
+  // Implement your logout logic here
+  console.log('User logged out');
+}
 
 }

@@ -1,52 +1,76 @@
 
 /*sidenav stuff*/
-:host {
-  display: block;
-  height: 100vh;
-}
-
-mat-sidenav-container {
-  height: 100%;
-  width: 100%;  
-}
-
-.list a[mat-list-item] {
+.layout {
   display: flex;
-  align-items: center;
-  height: 56px;     
-  padding: 0 12px;
-  box-sizing: border-box;  
+  height: 100vh; /* full viewport height */
 }
 
-.list a[mat-list-item] .mat-line {
-  font-size: 24px;
-  line-height: 24px;
-}
-
-.list mat-icon {
-  margin-right: 16px;
-  font-size: 28px;
-  vertical-align: middle;
+.app-card {
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  border-radius: 0;
+  color: var(--bg1);
 }
 
 .custom-black-toolbar {
-  background-color: #000;
-  color: #fff;
-  border-radius: 0;
+  background-color: var(--bg1);
+  color: var(--text);
 }
 
-.sidenav {
-  border-radius: 0;
-  width: 320px;
-  min-width: 320px;  
+.main-content {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
 }
+
+
+//topnav
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 300px;
+  width: 100%;
+  height: 64px; // typical navbar height
+  z-index: 1000;
+  border-radius: 0;
+  background-color: #0beb8e; // let mat-card style show
+
+
+  //top bar content
+    .top-bar-content{
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background-color: #3f51b5;
+
+        padding: 0 16;
+
+        .app-name {
+          color: #0beb8e;
+          
+          font-size: 20px;
+          margin-left: 300px;
+
+        }
+
+
+
+    }
+
+    
+}
+
+
+
 
 
 /*terminal stuff*/
 .terminal-hover-drawer {
   position: fixed;
   bottom: -160px; // Start hidden
-  left: 55px;    // Adjust if sidenav is wider/narrower
+  left: 300px;    // Adjust if sidenav is wider/narrower
   right: 0;
   background: #1e1e1e;
   color: #eee;
