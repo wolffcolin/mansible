@@ -52,11 +52,9 @@ export class ShellComponent {
     const body = document.body;
   
     if(this.lightMode){
-      body.classList.remove()
-      body.classList.add()
+      document.documentElement.className = 'theme-light';
     }else{
-      body.classList.remove()
-      body.classList.add()
+      document.documentElement.className = 'theme-dark';
     }
 
   }
